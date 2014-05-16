@@ -1,6 +1,11 @@
 .nrepl-port
 target
 
+# allfiles.* should not be tracked, plus they are too big anyway
+src/convert/allfiles.clj
+src/convert/allfiles.str.head.txt
+src/convert/allfiles.str.txt
+
 # editor backups
 .\#*
 *~

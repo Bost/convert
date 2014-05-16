@@ -1,8 +1,8 @@
 (ns convert.core
   (:require
    [clojure.xml :as xml]
-   ;[convert.files :as files]
-   [convert.fewfiles :as files]
+   [convert.allfiles :as files]
+   ;[convert.fewfiles :as files]
    )
   (:gen-class :main true))
 
@@ -13,7 +13,8 @@
   (let [my-data (xml/parse fname)
         fedn (str fname ".edn")]
     (spit fedn (with-out-str (pr my-data)))
-    (println (str "Creating: " fedn))))
+    ;(println (str "Creating: " fedn))
+    ))
 
 (defn convert-files!
   "side effects"
