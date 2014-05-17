@@ -10,6 +10,7 @@
   (println (str "Processing: " fname)))
 
 (defn convert [fname]
+  ;; TODO catch org.xml.sax.SAXParseException
   (let [my-data (xml/parse fname)
         fedn (str fname ".edn")]
     (spit fedn (with-out-str (pr my-data)))
