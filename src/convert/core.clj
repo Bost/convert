@@ -2,12 +2,9 @@
   (:require
    [clojure.xml :as xml]
    [convert.allfiles :as files]
-   ;[convert.fewfiles :as files]
+   ;; [convert.fewfiles :as files]
    )
   (:gen-class :main true))
-
-(defn x-main [fname]
-  (println (str "Processing: " fname)))
 
 (defn convert [fname]
   (let [my-data
