@@ -10,8 +10,10 @@
   (println (str "Processing: " fname)))
 
 (defn convert [fname]
-  ;; TODO catch org.xml.sax.SAXParseException
-  (let [my-data (xml/parse fname)
+  (let [my-data
+        (try
+          (xml/parse fname)
+          (catch Exception e (println "ERROR: fname:" fname (.getMessage e))))
         fedn (str fname ".edn")]
     (spit fedn (with-out-str (pr my-data)))
     ;(println (str "Creating: " fedn))
