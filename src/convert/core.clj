@@ -6,7 +6,7 @@
    )
   (:gen-class :main true))
 
-(defn convert [fname]
+(defn convert! [fname]
   (let [my-data
         (try
           (xml/parse fname)
@@ -16,14 +16,12 @@
     ;(println (str "Creating: " fedn))
     ))
 
-(defn convert-files!
-  "side effects"
-  []
+(defn convert-files []
   (doseq [fname files/fnames]
     (convert fname))
   (println "Files converted:" (count files/fnames)))
 
-(defn fix-files []
+(defn fix-files! []
   (let [files [ "/home/bost/vircurex/2013/08/31/vircurex.2013-08-31_15-05-30.xml"
                 "/home/bost/vircurex/2013/08/31/vircurex.2013-08-31_15-10-37.xml"
                 "/home/bost/vircurex/2013/08/31/vircurex.2013-08-31_15-36-50.xml"
@@ -34,4 +32,4 @@
         (println "Files fixed: " (count files))))
 
 (defn -main [& args]
-  (convert-files!))
+  (convert-files))
